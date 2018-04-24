@@ -1,15 +1,12 @@
 {
-  "name": "ornament-web-boilerplate",
+  "name": "ornament-server-boilerplate",
   "version": "1.0.0",
-  "description": "Spin up web apps in no time.",
+  "description": "Spin up api server in no time.",
   "main": "server.js",
   "scripts": {
     "test": "npm test",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "babel-watch index.js",
-    "client": "node start-client.js",
-    "build": "babel server -d dist",
-    "start": "node dist/index.js"
+    "start": "npm run server"
   },
   "babel": {
     "presets": [

@@ -1,4 +1,4 @@
-# Boilerplate for React/Redux apps based on create-react-app
+# Boilerplate for Express Server API
 
 Getting Started:  
 1. `npm install`

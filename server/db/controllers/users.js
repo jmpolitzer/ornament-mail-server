@@ -37,7 +37,7 @@ module.exports = {
   },
 
   loginRequired(req, res, next) {
-    const user = jwt.verify(req.headers.cookie.split('=')[1], 'RESTFULAPIs');
+    const user = jwt.verify(req.headers.authorization.split(' ')[1], 'RESTFULAPIs');
 
     if(req.user.id === user.id) {
       next();

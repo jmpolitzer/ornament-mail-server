@@ -4,7 +4,7 @@ const todoItemsController = require('../db/controllers').todoItems;
 
 module.exports = (app) => {
   app.get('/api', (req, res) => res.status(200).send({
-    message: 'Welcome to the Ornament-Boilerplate API!',
+    message: 'Welcome to the Ornament-Server-Boilerplate API!',
   }));
 
   app.post('/auth/register', usersController.register);
