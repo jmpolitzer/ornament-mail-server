@@ -1,4 +1,5 @@
 /node_modules
 /dist
+/server/mail/config.js
 .DS_Store
 npm-debug.log*
