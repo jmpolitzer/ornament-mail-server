@@ -2,6 +2,8 @@
 // const todosController = require('../db/controllers').todos;
 // const todoItemsController = require('../db/controllers').todoItems;
 
+import { verifyToken } from '../auth';
+
 const AccountController = require('../mail/controllers/account');
 
 module.exports = (app) => {
@@ -9,7 +11,7 @@ module.exports = (app) => {
     message: 'Welcome to the Ornament-Mail-Server!',
   }));
 
-  app.get('/api/mail/account', AccountController.getAccount);
+  app.get('/api/mail/account', verifyToken, AccountController.getAccount);
 
   // app.post('/auth/register', usersController.register);
   // app.post('/auth/sign_in', usersController.signIn);

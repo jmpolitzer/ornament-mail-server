@@ -14,19 +14,18 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use((req, res, next) => {
-  if(req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
-    jwt.verify(req.headers.authorization.split(' ')[1], 'RESTFULAPIs', (err, decode) => {
-      console.log(err, decode);
-      if(err) req.user = undefined;
-      req.user = decode;
-      next();
-    });
-  } else {
-    req.user = undefined;
-    next();
-  }
-});
+// app.use((req, res, next) => {
+//   if(req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
+//     jwt.verify(req.headers.authorization.split(' ')[1], 'RESTFULAPIs', (err, decode) => {
+//       if(err) req.user = undefined;
+//       req.user = decode;
+//       next();
+//     });
+//   } else {
+//     req.user = undefined;
+//     next();
+//   }
+// });
 
 require('./server/routes')(app);
 

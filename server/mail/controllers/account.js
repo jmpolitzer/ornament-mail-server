@@ -1,4 +1,4 @@
-import { default as SIB } from '../init';
+import { default as SIB } from '../index';
 
 const AccountApi = new SIB.AccountApi();
 

@@ -1,5 +1,6 @@
 /node_modules
 /dist
 /server/mail/config.js
+/server/firebase/firebaseServiceAccountKey.json
 .DS_Store
 npm-debug.log*
