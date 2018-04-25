@@ -5,13 +5,17 @@
 import { verifyToken } from '../auth';
 
 const AccountController = require('../mail/controllers/account');
+const ContactsController = require('../mail/controllers/contacts');
 
 module.exports = (app) => {
   app.get('/api', (req, res) => res.status(200).send({
     message: 'Welcome to the Ornament-Mail-Server!',
   }));
 
-  app.get('/api/mail/account', verifyToken, AccountController.getAccount);
+  app.get('/api/mail/accounts', verifyToken, AccountController.getAccount);
+
+  app.post('/api/mail/folders', verifyToken, ContactsController.createFolder);
+  app.get('/api/mail/folders', verifyToken, ContactsController.getFolder);
 
   // app.post('/auth/register', usersController.register);
   // app.post('/auth/sign_in', usersController.signIn);
