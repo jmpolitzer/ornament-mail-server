@@ -14,7 +14,7 @@ module.exports = {
   },
 
   getFolder(req, res) {
-    ContactsApi.getFolder(req.user.user_id)
+    ContactsApi.getFolder(req.params.folderId)
     .then(data => res.status(201).send(data))
     .catch(error => res.status(400).send(error));
   }
