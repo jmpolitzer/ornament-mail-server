@@ -13,8 +13,19 @@ module.exports = {
     .catch(error => res.status(400).send(error));
   },
 
-  getFolder(req, res) {
-    ContactsApi.getFolder(req.params.folderId)
+  getFolderLists(req, res) {
+    ContactsApi.getFolderLists(req.params.folderId)
+    .then(data => res.status(201).send(data))
+    .catch(error => res.status(400).send(error));
+  },
+
+  createList(req, res) {
+    const body = {
+      name: req.body.name,
+      folderId: parseInt(req.params.folderId, 10)
+    };
+
+    ContactsApi.createList(body)
     .then(data => res.status(201).send(data))
     .catch(error => res.status(400).send(error));
   }
