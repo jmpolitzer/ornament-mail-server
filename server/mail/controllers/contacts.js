@@ -28,5 +28,11 @@ module.exports = {
     ContactsApi.createList(body)
     .then(data => res.status(201).send(data))
     .catch(error => res.status(400).send(error));
+  },
+
+  deleteList(req, res) {
+    ContactsApi.deleteList(req.params.listId)
+    .then(() => res.status(201).send({ success: true }))
+    .catch(error => res.status(400).send(error));
   }
 }

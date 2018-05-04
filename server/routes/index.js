@@ -17,6 +17,7 @@ module.exports = (app) => {
   app.post('/api/mail/folders', verifyToken, ContactsController.createFolder);
   app.get('/api/mail/folders/:folderId', verifyToken, verifyOwnership, ContactsController.getFolderLists);
   app.post('/api/mail/folders/:folderId/lists', verifyToken, verifyOwnership, ContactsController.createList);
+  app.delete('/api/mail/folders/:folderId/lists/:listId', verifyToken, verifyOwnership, ContactsController.deleteList);
 
   // app.post('/auth/register', usersController.register);
   // app.post('/auth/sign_in', usersController.signIn);
