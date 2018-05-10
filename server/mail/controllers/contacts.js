@@ -34,5 +34,11 @@ module.exports = {
     ContactsApi.deleteList(req.params.listId)
     .then(() => res.status(201).send({ success: true }))
     .catch(error => res.status(400).send(error));
+  },
+
+  updateList(req, res) {
+    ContactsApi.updateList(req.params.listId, req.body)
+    .then(() => res.status(201).send({ success: true }))
+    .catch(error => res.status(400).send(error));
   }
 }
