@@ -1,7 +1,3 @@
-// const usersController = require('../db/controllers').users;
-// const todosController = require('../db/controllers').todos;
-// const todoItemsController = require('../db/controllers').todoItems;
-
 import { verifyToken, verifyOwnership } from '../auth';
 
 const AccountController = require('../mail/controllers/account');
@@ -20,21 +16,9 @@ module.exports = (app) => {
   app.put('/api/mail/folders/:folderId/lists/:listId', verifyToken, verifyOwnership, ContactsController.updateList);
   app.delete('/api/mail/folders/:folderId/lists/:listId', verifyToken, verifyOwnership, ContactsController.deleteList);
 
-  // app.post('/auth/register', usersController.register);
-  // app.post('/auth/sign_in', usersController.signIn);
-  //
-  // app.post('/api/todos', usersController.loginRequired, todosController.create);
-  // app.get('/api/todos', usersController.loginRequired, todosController.list);
-  // app.get('/api/todos/:todoId', usersController.loginRequired, todosController.retrieve);
-  // app.put('/api/todos/:todoId', usersController.loginRequired, todosController.update);
-  // app.delete('/api/todos/:todoId', usersController.loginRequired, todosController.destroy);
-  //
-  // app.post('/api/todos/:todoId/items', usersController.loginRequired, todoItemsController.create);
-  // app.put('/api/todos/:todoId/items/:todoItemId', usersController.loginRequired, todoItemsController.update);
-  // app.delete('/api/todos/:todoId/items/:todoItemId', usersController.loginRequired, todoItemsController.destroy);
-  //
-  // app.all('/api/todos/:todoId/items', (req, res) =>
-  //   res.status(405).send({
-  //     message: 'Method Not Allowed'
-  //   }));
+  app.all("*", (req, res) => {
+    res.status(404).send({
+      message: 'Not Found'
+    })
+  });
 };

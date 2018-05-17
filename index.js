@@ -16,12 +16,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 require('./server/routes')(app);
 
-app.all("*", (req, res) => {
-  res.status(200).send({
-    message: 'Hmpf. It does\'t look like there\'s anything here.'
-  })
-});
-
 const server = http.createServer(app);
 
 server.listen(port, () => {
