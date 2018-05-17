@@ -15,6 +15,7 @@ module.exports = (app) => {
   app.post('/api/mail/folders/:folderId/lists', verifyToken, verifyOwnership, ContactsController.createList);
   app.put('/api/mail/folders/:folderId/lists/:listId', verifyToken, verifyOwnership, ContactsController.updateList);
   app.delete('/api/mail/folders/:folderId/lists/:listId', verifyToken, verifyOwnership, ContactsController.deleteList);
+  app.post('/api/mail/folders/:folderId/contacts', verifyToken, verifyOwnership, ContactsController.createContact);
 
   app.all("*", (req, res) => {
     res.status(404).send({

@@ -40,5 +40,11 @@ module.exports = {
     ContactsApi.updateList(req.params.listId, req.body)
     .then(() => res.status(201).send({ success: true }))
     .catch(error => res.status(400).send(error));
+  },
+
+  createContact(req, res) {
+    ContactsApi.createContact(req.body)
+    .then(() => res.status(201).send({ success: true }))
+    .catch(error => res.status(400).send(error));
   }
 }
